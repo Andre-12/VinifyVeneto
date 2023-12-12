@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <androidx.appcompat.widget.Toolbar
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/userHomeToolbar"
+        android:background="@color/my_primary"
+        >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HOME"
+        android:textStyle="bold"
+        android:layout_gravity="left"
+        android:textSize="30sp">
+
+    </TextView>
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="right"
+            android:background="@drawable/baseline_exit_to_app_24"
+            android:id="@+id/logoutSeller"
+            ></ImageView>
+
+    </androidx.appcompat.widget.Toolbar>
+    <TextView
+        android:layout_width="400dp"
+        android:layout_height="200px"
+        android:text="Nome utente"
+        android:textStyle="bold"
+        android:textSize="40dp"
+        android:layout_below="@id/userHomeToolbar"
+        android:id="@+id/scritta"
+        ></TextView>
+    <Button
+        android:layout_width="230dp"
+        android:layout_height="50dp"
+        android:text="Catalogo"
+        android:backgroundTint="@color/my_secondary"
+        android:layout_below="@id/scritta"
+        android:id="@+id/catalogo"
+        ></Button>
+
+    <Button
+        android:layout_width="230dp"
+        android:layout_height="50dp"
+        android:text="Profilo"
+        android:layout_below="@id/catalogo"
+        android:backgroundTint="@color/my_secondary"
+        android:id="@+id/Profilo"></Button>
+
+</RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

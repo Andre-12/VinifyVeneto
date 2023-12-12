@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="*"
+        android:background="@drawable/cell_shape">
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="Belluno"
+                android:textSize="30dp"
+                android:id="@+id/belluno"
+                android:textAlignment="center"
+                android:textStyle="bold"/>
+
+
+        </TableRow>
+
+        <View
+            android:layout_height="2dp"
+            android:background="#000000" />
+
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:text="Padova"
+                android:textSize="30dp"
+                android:id="@+id/padova"
+                android:textAlignment="center"
+                android:textStyle="bold"/>
+        </TableRow>
+
+        <View
+            android:layout_height="2dp"
+            android:background="#000000" />
+
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:text="Rovigo"
+                android:textSize="30dp"
+                android:id="@+id/rovigo"
+                android:textAlignment="center"
+                android:textStyle="bold"/>
+        </TableRow>
+
+        <View
+            android:layout_height="2dp"
+            android:background="#000000" />
+
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:text="Treviso"
+                android:textSize="30dp"
+                android:id="@+id/treviso"
+                android:textAlignment="center"
+                android:textStyle="bold"/>
+        </TableRow>
+
+        <View
+            android:layout_height="2dp"
+            android:background="#000000" />
+
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:text="Venezia"
+                android:textSize="30dp"
+                android:id="@+id/venezia"
+                android:textAlignment="center"
+                android:textStyle="bold"/>
+        </TableRow>
+
+        <View
+            android:layout_height="2dp"
+            android:background="#000000" />
+
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:text="Verona"
+                android:textSize="30dp"
+                android:id="@+id/verona"
+                android:textAlignment="center"
+                android:textStyle="bold"/>
+        </TableRow>
+
+        <View
+            android:layout_height="2dp"
+            android:background="#000000" />
+
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:text="Vicenza"
+                android:textSize="30dp"
+                android:id="@+id/vicenza"
+                android:textAlignment="center"
+                android:textStyle="bold"/>
+        </TableRow>
+
+        <View
+            android:layout_height="2dp"/>
+
+    </TableLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

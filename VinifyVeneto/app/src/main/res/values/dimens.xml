@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- res/values/dimens.xml -->
+    <dimen name="your_corner_radius">40dp</dimen>
+
+    <dimen name="card_margin_bottom">10.0sp</dimen>
+
+</resources>

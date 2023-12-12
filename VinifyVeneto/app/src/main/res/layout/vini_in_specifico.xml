@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/relativeLayout"
+        >
+        <androidx.appcompat.widget.Toolbar
+            android:layout_alignParentTop="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/userHomeToolbar"
+            android:background="@color/my_primary"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="HOME"
+                android:id="@+id/home"
+                android:textStyle="bold"
+                android:layout_gravity="left"
+                android:textSize="30sp">
+
+            </TextView>
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="right"
+                android:background="@drawable/baseline_exit_to_app_24"
+                android:id="@+id/esci"
+                ></ImageView>
+        </androidx.appcompat.widget.Toolbar>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="60dp"
+            android:id="@+id/Nomeprod"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:text="nome prodotto"
+            android:layout_below="@id/userHomeToolbar"></TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/prezzo"
+            android:layout_below="@id/Nomeprod"
+            android:text="prezzo"
+            android:textStyle="bold"
+            android:textSize="45dp"
+            ></TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tipo"
+            android:layout_below="@id/prezzo"
+            android:text="tipo di vino"
+            android:textSize="35dp"></TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tipo"
+            android:text="descrizione articolo"
+            android:textSize="30dp"
+            android:id="@+id/descrizione"
+            ></TextView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_below="@id/descrizione"
+            android:id="@+id/vuoto"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:id="@+id/elimina"
+            android:backgroundTint="@color/my_secondary"
+            android:text="elimina"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_alignParentBottom="true"
+            ></Button>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:id="@+id/modifica"
+            android:backgroundTint="@color/my_secondary"
+            android:text="modifica"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_above="@+id/elimina"/>
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

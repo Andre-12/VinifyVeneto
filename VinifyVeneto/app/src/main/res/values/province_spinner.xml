@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="province_spinner">
+        <item>Tutti</item>
+        <item>Belluno</item>
+        <item>Padova</item>
+        <item>Rovigo</item>
+        <item>Treviso</item>
+        <item>Venezia</item>
+        <item>Verona</item>
+        <item>Vicenza</item>
+    </string-array>
+</resources>
