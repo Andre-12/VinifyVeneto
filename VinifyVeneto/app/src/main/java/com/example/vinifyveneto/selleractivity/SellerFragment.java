@@ -78,7 +78,7 @@ public class SellerFragment extends Fragment {
                 if(isHidden) {
                     isHidden=!isHidden;
                     //Toast.makeText(getContext(), "Resa visibile", Toast.LENGTH_SHORT).show();
-                    ((ImageView) view1.findViewById(R.id.sellerImageView)).setImageResource(R.drawable.baseline_remove_red_eye_24);
+                    ((ImageView) view1.findViewById(R.id.sellerImageView)).setImageResource(R.drawable.baseline_visibility_24);
                     ((EditText)view1.findViewById(R.id.sellerPasswordEdit)).setTransformationMethod(null);
                     ((EditText)view1.findViewById(R.id.sellerPasswordEdit)).setSelection(((EditText)view1.findViewById(R.id.sellerPasswordEdit)).getText().toString().length());
                 }
