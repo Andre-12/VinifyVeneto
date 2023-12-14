@@ -67,7 +67,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/address"
-            android:text="Provincia:"
+            android:text="Provincia: "
             android:textSize="30dp"
             android:id="@+id/provincia"
             android:paddingBottom="30dp"/>
@@ -89,7 +89,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
-                android:text="jffskjfksjdkfjksdk"/>
+                android:text=""
+                android:id="@+id/telNum"/>
 
         </LinearLayout>
 

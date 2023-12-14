@@ -56,6 +56,14 @@ public class Seller {
         return this.telNum;
     }
 
+    public void setId(){
+        this.id="";
+    }
+
+    public void setPassword(){
+        this.password="";
+    }
+
     /*@OneToMany(mappedBy = "seller", cascade = CascadeType.ALL)
     private List<Product> products;*/
 }

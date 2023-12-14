@@ -5,6 +5,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.server.server.model.product.Product;
+import com.server.server.model.product.ProductDao;
+
 @Service
 public class SellerDao {
     
@@ -44,4 +47,17 @@ public class SellerDao {
             return false;
         }
     }
+
+    /*public Seller getSellerInfo(String product){
+        if(productDao.existProduct(Integer.valueOf(product))){
+            Product p = productDao.geProduct(Integer.valueOf(product));
+            Seller s = getSeller(p.getSeller());
+            s.setId();
+            s.setPassword();
+            return s;
+        }
+        else{
+            return null;
+        }
+    }*/
 }

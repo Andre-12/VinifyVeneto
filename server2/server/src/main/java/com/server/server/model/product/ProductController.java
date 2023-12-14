@@ -111,5 +111,17 @@ public class ProductController {
       }
       return new ResponseEntity<>("Errore richiesta", 400);
     }
+
+    @GetMapping("/getSellerInfo/{product}")
+    public ResponseEntity<Seller> getSellerInfo(@PathVariable String product){
+      System.out.println("Richiesta info venditore  "+product);
+      Seller s = productDao.getSellerInfo(product);
+      if(s==null){
+        return new ResponseEntity<>("Richiesta fallita", 400);
+      }
+      else{
+        return new ResponseEntity<Seller>(s, "Richiesta esegiuta", 200);
+      }
+    }
     
 }

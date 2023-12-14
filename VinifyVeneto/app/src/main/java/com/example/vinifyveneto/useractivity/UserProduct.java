@@ -37,6 +37,15 @@ public class UserProduct extends AppCompatActivity {
 
         ((Button)findViewById(R.id.modifica)).setText("Info venditore");
 
+        findViewById(R.id.modifica).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), InfoSeller.class);
+                intent.putExtra("product", getIntent().getStringExtra("product"));
+                startActivity(intent);
+            }
+        });
+
         Button button = findViewById(R.id.elimina);
         if(getIntent().hasExtra("isFavorite")){
             button.setText("Rimuovi dai preferiti");

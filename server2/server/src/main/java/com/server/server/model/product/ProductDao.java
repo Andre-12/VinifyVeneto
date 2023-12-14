@@ -129,4 +129,17 @@ public class ProductDao {
         else
             return null;
     }
+
+    public Seller getSellerInfo(String product){
+        if(existProduct(Integer.valueOf(product))){
+            Product p = productRepository.findById(Integer.valueOf(product)).get();
+            Seller s = sellerDao.getSeller(p.getSeller());
+            s.setId();
+            s.setPassword();
+            return s;
+        }
+        else{
+            return null;
+        }
+    }
 }

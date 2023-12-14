@@ -53,4 +53,7 @@ public interface RetrofitInterface {
 
     @POST("/removeFavorite")
     Call<ResponseEntity<Void>> removeFavorite(@Body HashMap<String, String> map);
+
+    @GET("/getSellerInfo/{product}")
+    Call<ResponseEntity<Seller>> getSellerInfo(@Path("product") String product);
 }
