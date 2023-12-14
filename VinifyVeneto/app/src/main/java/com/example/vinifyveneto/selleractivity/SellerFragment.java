@@ -1,5 +1,8 @@
 package com.example.vinifyveneto.selleractivity;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -8,11 +11,14 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +36,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class SellerFragment extends Fragment {
+
+    private boolean isHidden=true;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -61,6 +69,65 @@ public class SellerFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 handleSignup(RetrofitEntity.getRetrofit());
+            }
+        });
+
+        view.findViewById(R.id.sellerImageView).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isHidden) {
+                    isHidden=!isHidden;
+                    //Toast.makeText(getContext(), "Resa visibile", Toast.LENGTH_SHORT).show();
+                    ((ImageView) view1.findViewById(R.id.sellerImageView)).setImageResource(R.drawable.baseline_remove_red_eye_24);
+                    ((EditText)view1.findViewById(R.id.sellerPasswordEdit)).setTransformationMethod(null);
+                    ((EditText)view1.findViewById(R.id.sellerPasswordEdit)).setSelection(((EditText)view1.findViewById(R.id.sellerPasswordEdit)).getText().toString().length());
+                }
+                else{
+                    isHidden=!isHidden;
+                    ((ImageView)view1.findViewById(R.id.sellerImageView)).setImageResource(R.drawable.baseline_visibility_off_24);
+                    ((EditText)view1.findViewById(R.id.sellerPasswordEdit)).setTransformationMethod(new PasswordTransformationMethod());
+                    ((EditText)view1.findViewById(R.id.sellerPasswordEdit)).setSelection(((EditText)view1.findViewById(R.id.sellerPasswordEdit)).getText().toString().length());
+                }
+            }
+        });
+
+        view.findViewById(R.id.forgotPassword).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                View forgotPassword = getLayoutInflater().inflate(R.layout.recupero_password, null);
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setView(forgotPassword).show();
+
+                EditText id = forgotPassword.findViewById(R.id.idEdit);
+                EditText tel = forgotPassword.findViewById(R.id.telEdit);
+
+                forgotPassword.findViewById(R.id.forgotButton).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Call<ResponseEntity<String>> call = RetrofitEntity.getRetrofit().forgotPassword(id.getText().toString(), tel.getText().toString());
+
+                        call.enqueue(new Callback<ResponseEntity<String>>() {
+                            @Override
+                            public void onResponse(Call<ResponseEntity<String>> call, Response<ResponseEntity<String>> response) {
+                                if(response.body().getCode()==200){
+                                    ClipboardManager clipboardManager = (ClipboardManager) requireActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+                                    ClipData clipData = ClipData.newPlainText("Password", response.body().getEntity());
+                                    clipboardManager.setPrimaryClip(clipData);
+                                    Toast.makeText(getContext(), "Password copiata negli appunti", Toast.LENGTH_LONG).show();
+                                }
+                                else{
+                                    Toast.makeText(getContext(), "Recupero password non riuscito", Toast.LENGTH_LONG).show();
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<ResponseEntity<String>> call, Throwable t) {
+                                Toast.makeText(getContext(), R.string.connectionFault, Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
+                });
+
             }
         });
         // Inflate the layout for this fragment

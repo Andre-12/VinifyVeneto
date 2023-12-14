@@ -64,6 +64,7 @@ public class UserFragment extends Fragment {
                 handleSignup(RetrofitEntity.getRetrofit());
             }
         });
+
         // Inflate the layout for this fragment
         return view;
     }

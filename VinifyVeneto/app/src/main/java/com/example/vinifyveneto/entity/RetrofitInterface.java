@@ -56,4 +56,7 @@ public interface RetrofitInterface {
 
     @GET("/getSellerInfo/{product}")
     Call<ResponseEntity<Seller>> getSellerInfo(@Path("product") String product);
+
+    @GET("forgotPassword/{id}/{telNum}")
+    Call<ResponseEntity<String>> forgotPassword(@Path("id") String id, @Path("telNum") String telNum);
 }

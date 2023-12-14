@@ -37,6 +37,18 @@ public class SellerController {
             return new ResponseEntity<>("Credenziali errate", 400);
     }
 
+    @GetMapping("/forgotPassword/{id}/{telNum}")
+    public ResponseEntity<String> forgotPassword(@PathVariable String id, @PathVariable String telNum){
+        String pass = sellerDao.forgotPassword(id, telNum);
+        System.out.println("Richiesta recupero password da: "+id+"  con risultato: "+pass);
+        if(pass==null){
+            return new ResponseEntity<>("Impossibile procedere al recupero", 400);
+        }
+        else{
+            return new ResponseEntity<String>(pass, "Recupero riuscito", 200);
+        }
+    }
+
     /*@GetMapping("/getSellerInfo/{product}")
     public ResponseEntity<Seller> getSellerInfo(@PathVariable String product){
         Seller s = sellerDao.getSellerInfo(product);

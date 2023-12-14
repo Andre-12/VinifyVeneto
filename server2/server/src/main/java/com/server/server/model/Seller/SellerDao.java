@@ -48,6 +48,19 @@ public class SellerDao {
         }
     }
 
+    public String forgotPassword(String id, String telNum){
+        if(sellerRepository.findById(id).isPresent()){
+            Seller s = sellerRepository.findById(id).get();
+            if(s.getTelNum().equals(telNum))
+                return s.getPassword();
+            else
+                return null;
+        }
+        else{
+            return null;
+        }
+    }
+
     /*public Seller getSellerInfo(String product){
         if(productDao.existProduct(Integer.valueOf(product))){
             Product p = productDao.geProduct(Integer.valueOf(product));
