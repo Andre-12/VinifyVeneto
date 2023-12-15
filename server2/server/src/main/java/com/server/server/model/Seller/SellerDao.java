@@ -61,16 +61,4 @@ public class SellerDao {
         }
     }
 
-    /*public Seller getSellerInfo(String product){
-        if(productDao.existProduct(Integer.valueOf(product))){
-            Product p = productDao.geProduct(Integer.valueOf(product));
-            Seller s = getSeller(p.getSeller());
-            s.setId();
-            s.setPassword();
-            return s;
-        }
-        else{
-            return null;
-        }
-    }*/
 }

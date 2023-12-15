@@ -21,16 +21,6 @@ public class FavoriteController {
     @PostMapping("/addFavorite")
     public ResponseEntity<Void> addFavorite(@RequestBody AddFavoriteRequest request){
 
-        /*if(favoriteDao.addFavorite(request))
-            return new ResponseEntity<>("Aggiunto ai preferiti", 200);
-        else{
-            System.out.println("jksdjsdkcjdk");
-            if(favoriteDao.alreadyFavorite(request.getUser(), request.getProduct()))
-                return new ResponseEntity<>("Prodotto già presente nei preferiti", 400);
-            else
-                return new ResponseEntity<>("Impossibile eseguire la richiesta", 400);
-        }*/
-
         return favoriteDao.addFavorite(request);
     }
 

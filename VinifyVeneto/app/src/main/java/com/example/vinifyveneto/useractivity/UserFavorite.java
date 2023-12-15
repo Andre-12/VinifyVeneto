@@ -16,6 +16,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.vinifyveneto.MainActivity;
 import com.example.vinifyveneto.R;
 import com.example.vinifyveneto.entity.CurrentUser;
 import com.example.vinifyveneto.entity.ResponseEntity;
@@ -61,6 +62,21 @@ public class UserFavorite extends AppCompatActivity {
                     drawCatalog();
                 }
                 return false;
+            }
+        });
+
+        findViewById(R.id.userHomeToolbar).findViewById(R.id.home).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
+        findViewById(R.id.logoutUser).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                finish();
             }
         });
 

@@ -8,12 +8,14 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.vinifyveneto.R;
@@ -32,6 +34,8 @@ import retrofit2.Response;
 
 public class UserFragment extends Fragment {
 
+    private boolean isHidden=true;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -47,6 +51,24 @@ public class UserFragment extends Fragment {
                 fragmentTransaction.replace(R.id.fragmentSlot, new SellerFragment());
 
                 fragmentTransaction.commit();
+            }
+        });
+
+        view.findViewById(R.id.userImageView).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isHidden){
+                    ((ImageView)view1.findViewById(R.id.userImageView)).setImageResource(R.drawable.baseline_visibility_24);
+                    ((EditText)view1.findViewById(R.id.passwordEditF)).setTransformationMethod(null);
+                    ((EditText)view1.findViewById(R.id.passwordEditF)).setSelection(((EditText)view1.findViewById(R.id.passwordEditF)).getText().toString().length());
+                    isHidden=!isHidden;
+                }
+                else{
+                    ((ImageView)view1.findViewById(R.id.userImageView)).setImageResource(R.drawable.baseline_visibility_off_24);
+                    ((EditText)view1.findViewById(R.id.passwordEditF)).setTransformationMethod(new PasswordTransformationMethod());
+                    ((EditText)view1.findViewById(R.id.passwordEditF)).setSelection(((EditText)view1.findViewById(R.id.passwordEditF)).getText().toString().length());
+                    isHidden=!isHidden;
+                }
             }
         });
 

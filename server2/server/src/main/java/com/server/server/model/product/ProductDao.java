@@ -97,28 +97,7 @@ public class ProductDao {
 
     public List<Product> getUserProducts(ProductRequest request){
         List<Product> l = productRepository.findAll();
-        /*System.out.println("Lista di vini: "+request.getOrigin()+"    "+request.getType());
-        for(int i=0;i<l.size();++i){
-            Product p = l.get(i);
-            boolean remove=false;
-            if(!request.getOrigin().equals("Tutti") && !p.getOrigin().equals(request.getOrigin())){
-                remove=true;
-            }
-
-            if(!request.getType().equals("Tutti") && !p.getType().equals(request.getType())){
-                remove=true;
-            }
-
-            if(remove){
-                l.remove(p);
-            }
-            else{
-                Seller seller = sellerDao.getSeller(p.getSeller());
-                p.setSeller(seller.getName());
-            }
-        }*/
-
-
+    
         return l;
     }
 

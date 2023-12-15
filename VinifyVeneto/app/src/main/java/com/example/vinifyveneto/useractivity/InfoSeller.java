@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.vinifyveneto.MainActivity;
 import com.example.vinifyveneto.R;
 import com.example.vinifyveneto.entity.ResponseEntity;
 import com.example.vinifyveneto.entity.RetrofitEntity;
@@ -43,6 +45,22 @@ public class InfoSeller extends AppCompatActivity {
             @Override
             public void onFailure(Call<ResponseEntity<Seller>> call, Throwable t) {
                 Toast.makeText(getApplicationContext(), R.string.connectionFault, Toast.LENGTH_LONG).show();
+            }
+        });
+
+        findViewById(R.id.esci).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                finish();
+            }
+        });
+
+        findViewById(R.id.userHomeToolbar).findViewById(R.id.home).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), UserHome.class));
+                finish();
             }
         });
     }

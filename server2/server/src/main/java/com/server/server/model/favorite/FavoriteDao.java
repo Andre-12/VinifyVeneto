@@ -25,23 +25,6 @@ public class FavoriteDao {
     @Autowired
     private FavoriteRepository repository;
 
-    /*public boolean addFavorite(AddFavoriteRequest request){
-        if(!productDao.existProduct(request.getProduct()))
-            return false;
-        List<Favorite> l = repository.findAll();
-        if(userDao.checkUser(new User(request.getUser(), request.getPassword()))){
-            for(Favorite f : l){
-                if(f.getUser().equals(request.getUser()) && f.getProduct()==request.getProduct())
-                    return false;
-            }
-            repository.save(new Favorite(request.getUser(), request.getProduct()));
-            return true;
-        }
-        else{
-            return false;
-        }
-    }*/
-
     public ResponseEntity<Void> addFavorite(AddFavoriteRequest request){
         List<Favorite> l = repository.findAll();
         if(userDao.checkUser(new User(request.getUser(), request.getPassword()))){

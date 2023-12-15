@@ -49,14 +49,4 @@ public class SellerController {
         }
     }
 
-    /*@GetMapping("/getSellerInfo/{product}")
-    public ResponseEntity<Seller> getSellerInfo(@PathVariable String product){
-        Seller s = sellerDao.getSellerInfo(product);
-        if(s==null){
-            return new ResponseEntity<>("Richiesta fallita", 400);
-        }
-        else{
-            return new ResponseEntity<Seller>(s, "Richiesta eseguita", 200);
-        }
-    }*/
 }

@@ -45,7 +45,7 @@ public class ProductController {
         List<Product> l = productDao.getProducts(request);
         //System.out.println("La sixe: "+l.size());
 
-        return new ResponseEntity<>(l, "fsdkljk", 200);
+        return new ResponseEntity<>(l, "", 200);
     }
 
     @PostMapping("/getProduct")

@@ -11,6 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.vinifyveneto.MainActivity;
 import com.example.vinifyveneto.R;
 import com.example.vinifyveneto.entity.CurrentUser;
 import com.example.vinifyveneto.entity.ResponseEntity;
@@ -132,6 +133,22 @@ public class UserProduct extends AppCompatActivity {
         });
 
 
+        findViewById(R.id.userHomeToolbar).findViewById(R.id.home).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), UserHome.class));
+                finish();
+            }
+        });
+
+
+        findViewById(R.id.esci).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                finish();
+            }
+        });
     }
 
     private void drawProduct(){

@@ -20,9 +20,6 @@
             android:name=".useractivity.InfoSeller"
             android:exported="false" />
         <activity
-            android:name=".useractivity.InfoVenditore"
-            android:exported="false" />
-        <activity
             android:name=".useractivity.UserFavorite"
             android:exported="false" />
         <activity
