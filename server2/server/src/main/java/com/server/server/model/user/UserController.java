@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.server.server.model.ResponseEntity;
+import com.server.server.model.Request.UserDelete;
 
 @RestController
 public class UserController {
@@ -34,5 +35,13 @@ public class UserController {
         else{
             return new ResponseEntity<>("Credenziali errate", 400);
         }
+    }
+
+    @PostMapping("/deleteUser")
+    public ResponseEntity<Void> deleteUser(@RequestBody UserDelete request){
+        if(userDao.checkUserDelete(request.getUser(), request.getPassword()))
+            return new ResponseEntity<>("Utente eliminato", 200);
+        
+        return new ResponseEntity<>("Password errata", 400);
     }
 }

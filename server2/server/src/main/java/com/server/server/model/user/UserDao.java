@@ -33,4 +33,21 @@ public class UserDao {
             return false;
         }
     }
+
+    public boolean checkUserDelete(String id, String password){
+        Optional<User> tmp = repository.findById(id);
+        if(tmp.isPresent()){
+            User u = tmp.get();
+            if(u.getPassword().equals(password)){
+                repository.deleteById(id);
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        else{
+            return false;
+        }
+    }
 }

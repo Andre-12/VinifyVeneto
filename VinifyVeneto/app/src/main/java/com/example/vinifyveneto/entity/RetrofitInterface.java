@@ -59,4 +59,7 @@ public interface RetrofitInterface {
 
     @GET("forgotPassword/{id}/{telNum}")
     Call<ResponseEntity<String>> forgotPassword(@Path("id") String id, @Path("telNum") String telNum);
+
+    @POST("/deleteUser")
+    Call<ResponseEntity<Void>> deleteUser(@Body HashMap<String, String> map);
 }

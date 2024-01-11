@@ -57,6 +57,14 @@
           android:backgroundTint="@color/my_secondary"
           android:id="@+id/Cutente"></Button>
 
+      <Button
+          android:layout_width="230dp"
+          android:layout_height="50dp"
+          android:backgroundTint="@color/my_secondary"
+          android:layout_below="@id/Cutente"
+          android:text="Elimina Profilo"
+          android:id="@+id/deleteProfile"/>
+
 
    </RelativeLayout>
 
