@@ -62,4 +62,13 @@ public interface RetrofitInterface {
 
     @POST("/deleteUser")
     Call<ResponseEntity<Void>> deleteUser(@Body HashMap<String, String> map);
+
+    @POST("/deleteSeller")
+    Call<ResponseEntity<Void>> deleteSeller(@Body HashMap<String, String> map);
+
+    @POST("/changeSellerPassword")
+    Call<ResponseEntity<Void>> changeSellerPassword(@Body HashMap<String, String> map);
+
+    @POST("/getSellerProfile")
+    Call<ResponseEntity<Seller>> getSellerProfile(@Body HashMap<String, String> map);
 }

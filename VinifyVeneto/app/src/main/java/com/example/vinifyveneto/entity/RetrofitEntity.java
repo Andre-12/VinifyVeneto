@@ -9,7 +9,7 @@ public class RetrofitEntity {
 
     private static String BASE_URL2="http://172.17.0.1:9000";
 
-    private static String BASE_URL = "http://157.138.164.224:9000";
+    private static String BASE_URL = "http://157.138.166.167:9000";
 
     private static String BASE_URL3 = "http://192.168.209.123:9000";
 

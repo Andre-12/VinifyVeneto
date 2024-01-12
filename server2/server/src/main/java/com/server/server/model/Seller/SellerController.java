@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.server.server.model.ResponseEntity;
+import com.server.server.model.Request.SellerPassword;
+import com.server.server.model.Request.SellerProfileRequest;
+import com.server.server.model.Request.UserDelete;
 
 @RestController
 public class SellerController {
@@ -47,6 +50,40 @@ public class SellerController {
         else{
             return new ResponseEntity<String>(pass, "Recupero riuscito", 200);
         }
+    }
+
+    @PostMapping("/deleteSeller")
+    public ResponseEntity<Void> deleteSeller(@RequestBody UserDelete request){
+        if(sellerDao.deleteSeller(request.getUser(), request.getPassword())){
+            return new ResponseEntity<>("Utente eliminato", 200);
+        }
+
+        return new ResponseEntity<>("Password errata", 400);
+    }
+
+
+    @PostMapping("/changeSellerPassword")
+    public ResponseEntity<Void> changePassword(@RequestBody SellerPassword request){
+        if(sellerDao.changePassword(request.getId(), request.getOldPassword(), request.getNewPassword()))
+            return new ResponseEntity<>("Password modificata", 200);
+        
+        return new ResponseEntity<>("Errore nella richiesta", 400);
+    }
+
+    @PostMapping("/getSellerProfile")
+    public ResponseEntity<Seller> getSellerProfile(@RequestBody SellerProfileRequest request){
+        
+        Seller seller = sellerDao.getSeller(request.getId());
+        if(seller!=null){
+            if(seller.getPassword().equals(request.getPassword()))
+                return new ResponseEntity<Seller>(seller, null, 200);
+            else
+                return new ResponseEntity<>(null, 400);
+        }
+        else{
+            return new ResponseEntity<>("", 400);
+        }
+        
     }
 
 }

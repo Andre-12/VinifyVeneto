@@ -306,7 +306,7 @@ public class SellerFragment extends Fragment {
 
             @Override
             public void onFailure(Call<ResponseEntity<Seller>> call, Throwable t) {
-                Toast.makeText(getContext(), "Ops", Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), R.string.connectionFault, Toast.LENGTH_LONG).show();
             }
         });
     }

@@ -46,19 +46,33 @@ public class ProductDao {
         if(productRequest==null) System.out.println("E' il product che mi uccide");
         List<Product> l = getAllProduct();
         List<Product> lr = new ArrayList<>();
-        for(int i=0;i<l.size();++i){
+        /*for(int i=0;i<l.size();++i){
             Product p = l.get(i);
             if(p.getSeller().equals(productRequest.getSeller())){
                 lr.add(p);
             }
-        }
+        }*/
 
-        for(Product p : l){
+        /*for(Product p : l){
             if(!p.getSeller().equals(productRequest.getSeller())){
                 l.remove(p);
             }
             else if(productRequest.getType()!=null && !productRequest.getType().equals("Tutti") && !productRequest.getType().equals(productRequest.getType())){
                 l.remove(p);
+            }
+            else if(productRequest.getOrigin()!=null){
+
+            }
+        }*/
+
+        for(int i=0;i<l.size();++i){
+            if(!l.get(i).getSeller().equals(productRequest.getSeller())){
+                l.remove(i);
+                i--;
+            }
+            else if(productRequest.getType()!=null && !productRequest.getType().equals("Tutti")&&!productRequest.getType().equals(productRequest.getType())){
+                l.remove(i);
+                i--;
             }
             else if(productRequest.getOrigin()!=null){
 

@@ -18,6 +18,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="HOME"
+                android:id="@+id/home"
                 android:textStyle="bold"
                 android:layout_gravity="left"
                 android:textSize="30sp">
@@ -41,21 +42,45 @@
             android:layout_below="@id/userHomeToolbar"
             android:id="@+id/Nutente"
             ></TextView>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Nutente"
+            android:id="@+id/modAddress"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/modAddress"
+            android:id="@+id/modNumber"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/modNumber"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:id="@+id/modProv"/>
         <Button
-            android:layout_width="400dp"
-            android:layout_height="100dp"
-            android:text="cambia password"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="Cambia password"
             android:textStyle="bold"
             android:textSize="30dp"
             android:id="@+id/Cpassword"
             android:backgroundTint="@color/my_secondary"
-            android:layout_above="@id/cancelltaU"
+            android:layout_above="@id/cancellaU"
 
             ></Button>
         <Button
-            android:layout_width="400dp"
-            android:layout_height="100dp"
-            android:text="Privacy"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="Modifica profilo"
             android:textStyle="bold"
             android:textSize="30dp"
             android:id="@+id/Privacy"
@@ -64,12 +89,12 @@
 
             ></Button>
         <Button
-            android:layout_width="400dp"
-            android:layout_height="100dp"
-            android:text="Privacy"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="Cancella profilo"
             android:textStyle="bold"
             android:textSize="30dp"
-            android:id="@+id/cancelltaU"
+            android:id="@+id/cancellaU"
             android:backgroundTint="@color/my_secondary"
 
             android:layout_alignParentBottom="true"

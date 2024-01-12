@@ -38,7 +38,7 @@ public class SellerDao {
     public boolean loginSeller(Seller seller){
         if(existSeller(seller)){
             Seller s = sellerRepository.findById(seller.getId()).get();
-            if(seller.getPassword().equals(s.getPassword()))
+            if(seller.getPassword().equals(s.getPassword()) && seller.getName().equals(s.getName()))
                 return true;
             else
                 return false;
@@ -58,6 +58,38 @@ public class SellerDao {
         }
         else{
             return null;
+        }
+    }
+
+    public boolean deleteSeller(String id, String password){
+        System.out.println("Richiesta delete da: "+id);
+        Optional<Seller> s = sellerRepository.findById(id);
+        if(s.isPresent()){
+            Seller seller = s.get();
+            if(seller.getPassword().equals(password)){
+                sellerRepository.deleteById(id);
+                return true;
+            }
+            else{
+              return false;  
+            }
+        }
+        return false;
+    }
+
+    public boolean changePassword(String id, String old, String newPass){
+        Optional<Seller> o = sellerRepository.findById(id);
+        if(o.isPresent()){
+            Seller s = o.get();
+            if(s.getPassword().equals(old)){
+                s.changePassword(newPass);
+                sellerRepository.save(s);
+                return true;
+            }
+            return false;
+        }
+        else{
+            return false;
         }
     }
 

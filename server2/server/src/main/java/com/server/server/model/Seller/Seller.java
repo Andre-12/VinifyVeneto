@@ -64,6 +64,10 @@ public class Seller {
         this.password="";
     }
 
+    public void changePassword(String s){
+        this.password=s;
+    }
+
     /*@OneToMany(mappedBy = "seller", cascade = CascadeType.ALL)
     private List<Product> products;*/
 }

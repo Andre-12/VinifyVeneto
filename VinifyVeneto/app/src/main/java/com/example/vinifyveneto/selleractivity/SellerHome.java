@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.vinifyveneto.MainActivity;
 import com.example.vinifyveneto.R;
@@ -54,6 +55,14 @@ public class SellerHome extends AppCompatActivity {
                 intent.putExtra("id", currentUser.get("id"));
                 intent.putExtra("password", currentUser.get("password"));
                 startActivity(intent);
+            }
+        });
+
+        findViewById(R.id.Profilo).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), SellerProfile.class));
+
             }
         });
     }
