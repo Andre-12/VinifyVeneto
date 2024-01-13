@@ -71,4 +71,7 @@ public interface RetrofitInterface {
 
     @POST("/getSellerProfile")
     Call<ResponseEntity<Seller>> getSellerProfile(@Body HashMap<String, String> map);
+
+    @POST("/modSeller")
+    Call<ResponseEntity<Void>> modSeller(@Body HashMap<String, String> map);
 }

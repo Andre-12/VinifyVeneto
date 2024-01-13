@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -139,6 +140,11 @@ public class UserFragment extends Fragment {
     }
 
     private void handleLogin(View view, RetrofitInterface retrofitInterface) {
+
+        if(!((CheckBox)view.findViewById(R.id.userCheck)).isChecked()){
+            Toast.makeText(getActivity(), "Accettare informativa privacy", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         Log.d("mytag", "pippo");
         HashMap<String, String> map = new HashMap<>();

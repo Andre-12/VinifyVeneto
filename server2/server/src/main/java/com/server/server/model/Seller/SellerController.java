@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.server.server.model.ResponseEntity;
+import com.server.server.model.Request.ModSeller;
 import com.server.server.model.Request.SellerPassword;
 import com.server.server.model.Request.SellerProfileRequest;
 import com.server.server.model.Request.UserDelete;
@@ -84,6 +85,18 @@ public class SellerController {
             return new ResponseEntity<>("", 400);
         }
         
+    }
+
+
+    @PostMapping("/modSeller")
+    public ResponseEntity<Void> modSeller(@RequestBody ModSeller request){
+        if(sellerDao.goodSeller(request.getId(), request.getPassword())){
+            if(sellerDao.changeSeller(request)){
+                return new ResponseEntity<>("Modifiche salvate", 200);
+            }
+        }
+
+        return new ResponseEntity<>("Errore nella richiesta", 400);
     }
 
 }

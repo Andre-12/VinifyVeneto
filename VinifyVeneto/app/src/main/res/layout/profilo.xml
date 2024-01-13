@@ -33,39 +33,58 @@
                 ></ImageView>
 
         </androidx.appcompat.widget.Toolbar>
-        <TextView
+        <EditText
             android:layout_width="400dp"
             android:layout_height="200px"
             android:text="Nome utente"
             android:textStyle="bold"
             android:textSize="40dp"
+            android:hint="Nome attività"
+            android:inputType="textImeMultiLine"
             android:layout_below="@id/userHomeToolbar"
             android:id="@+id/Nutente"
-            ></TextView>
+            ></EditText>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/Nutente"
+            android:textSize="30dp"
+            android:hint="Indirizzo"
+            android:inputType="textNoSuggestions"
             android:id="@+id/modAddress"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_below="@id/modAddress"
+            android:id="@+id/space"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/modAddress"
+            android:layout_below="@id/space"
+            android:textSize="30dp"
+            android:hint="Numero telefonico"
             android:id="@+id/modNumber"/>
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="10dp"/>
+            android:layout_height="20dp"
+            android:id="@+id/space2"
+            android:layout_below="@id/modNumber"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/modNumber"
+            android:layout_below="@id/space2"
             android:textSize="30dp"
+            android:text=""
             android:textStyle="bold"
             android:id="@+id/modProv"/>
+
+
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="70dp"

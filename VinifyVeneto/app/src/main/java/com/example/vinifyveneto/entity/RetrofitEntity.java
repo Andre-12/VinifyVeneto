@@ -11,10 +11,10 @@ public class RetrofitEntity {
 
     private static String BASE_URL = "http://157.138.166.167:9000";
 
-    private static String BASE_URL3 = "http://192.168.209.123:9000";
+    private static String BASE_URL3 = "http://192.168.1.76:9000";
 
     public static RetrofitInterface getRetrofit(){
-        Retrofit retrofit = new Retrofit.Builder().baseUrl(BASE_URL)
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(BASE_URL3)
                 .addConverterFactory(GsonConverterFactory.create(new Gson())).build();
 
         RetrofitInterface retrofitInterface = retrofit.create(RetrofitInterface.class);

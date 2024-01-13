@@ -177,9 +177,81 @@ public class SellerProfile extends AppCompatActivity {
             }
         });
 
+
+        findViewById(R.id.Privacy).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(somethingChange()){
+                    HashMap<String, String> map = new HashMap<>();
+                    map.put("id", CurrentUser.getId());
+                    map.put("password", CurrentUser.getPassword());
+                    map.put("name", ((TextView)findViewById(R.id.Nutente)).getText().toString());
+                    map.put("address", ((TextView)findViewById(R.id.modAddress)).getText().toString());
+                    map.put("tel", ((TextView)findViewById(R.id.modNumber)).getText().toString());
+                    map.put("prov", ((TextView)findViewById(R.id.modProv)).getText().toString());
+
+                    Call<ResponseEntity<Void>> call = RetrofitEntity.getRetrofit().modSeller(map);
+
+                    call.enqueue(new Callback<ResponseEntity<Void>>() {
+                        @Override
+                        public void onResponse(Call<ResponseEntity<Void>> call, Response<ResponseEntity<Void>> response) {
+                            Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                            if(response.body().getCode()==200){
+                                getSeller();
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<ResponseEntity<Void>> call, Throwable t) {
+                            Toast.makeText(getApplicationContext(), R.string.connectionFault, Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+                else{
+                    Toast.makeText(getApplicationContext(), "Dati inseriti non validi", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
         getSeller();
 
 
+    }
+
+    private boolean somethingChange(){
+        TextView name = findViewById(R.id.Nutente);
+        TextView address = findViewById(R.id.modAddress);
+        TextView num = findViewById(R.id.modNumber);
+        TextView prov = findViewById(R.id.modProv);
+        if(!name.getText().toString().equals(s.getName())||!address.getText().toString().equals(s.getAddress())
+                ||!num.getText().toString().equals(s.getTelNum()) ||!prov.getText().toString().equals(s.getProv())){
+            if(name.getText().toString().isEmpty()||address.getText().toString().isEmpty()||prov.getText().toString().isEmpty()||!telFormat(num.getText().toString())){
+                return false;
+            }
+            else{
+                return true;
+            }
+        }
+        else{
+            return false;
+        }
+    }
+
+    private boolean telFormat(String tel){
+        if(tel.length()!=13)
+            return false;
+        boolean isValid=true;
+        for(int i=0; i<tel.length() && isValid; ++i){
+            if(i==0 && tel.charAt(i)!='+')
+                isValid = false;
+
+            else{
+                if(tel.charAt(i)<48 && tel.charAt(i)>57)
+                    isValid=false;
+            }
+        }
+
+        return isValid;
     }
 
     private void getSeller(){

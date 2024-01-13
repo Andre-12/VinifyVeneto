@@ -68,6 +68,11 @@ public class Seller {
         this.password=s;
     }
 
-    /*@OneToMany(mappedBy = "seller", cascade = CascadeType.ALL)
-    private List<Product> products;*/
+    public void setAddress(String address){ this.address=address;}
+
+    public void setNum(String num){this.telNum=num;}
+
+    public void setProv(String prov){this.prov=prov;}
+
+    public void setName(String name){this.name=name;}
 }

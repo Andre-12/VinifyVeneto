@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.server.server.model.Request.ModSeller;
 import com.server.server.model.product.Product;
 import com.server.server.model.product.ProductDao;
 
@@ -91,6 +92,20 @@ public class SellerDao {
         else{
             return false;
         }
+    }
+
+    public boolean changeSeller(ModSeller request){
+        if(goodSeller(request.getId(), request.getPassword())){
+            Seller s = sellerRepository.findById(request.getId()).get();
+            s.setName(request.getName());
+            s.setAddress(request.getAddress());
+            s.setNum(request.getTel());
+            s.setProv(request.getProv());
+            sellerRepository.save(s);
+            return true;
+        }
+
+        return false;
     }
 
 }
