@@ -34,7 +34,7 @@ public class UserHome extends AppCompatActivity {
             CurrentUser.setPassword(getIntent().getStringExtra("password"));
         }
 
-        ((TextView)findViewById(R.id.scritta)).setText(CurrentUser.getId()+":");
+        ((TextView)findViewById(R.id.scritta)).setText("Ciao, "+CurrentUser.getId()+":");
 
         findViewById(R.id.logoutUser).setOnClickListener(new View.OnClickListener() {
             @Override

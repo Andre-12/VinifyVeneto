@@ -1,15 +1,12 @@
 package com.example.vinifyveneto;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+
+import com.github.barteksc.pdfviewer.PDFView;
+import com.github.barteksc.pdfviewer.scroll.DefaultScrollHandle;
 
 public class SecondActivity extends AppCompatActivity {
 
@@ -19,4 +16,5 @@ public class SecondActivity extends AppCompatActivity {
         setContentView(R.layout.aggiungi_vino);
 
     }
+
 }

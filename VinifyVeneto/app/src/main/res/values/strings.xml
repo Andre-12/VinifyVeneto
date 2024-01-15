@@ -8,4 +8,6 @@
     <string name="url2">http://172.17.0.1:9000</string>
 
     <string name="connectionFault">Connessione fallita</string>
+
+    <string name="privacyPath">file:///android_asset/privacy.pdf</string>
 </resources>

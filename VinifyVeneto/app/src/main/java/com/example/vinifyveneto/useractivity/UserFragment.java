@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.vinifyveneto.PdfActivity;
 import com.example.vinifyveneto.R;
 import com.example.vinifyveneto.SecondActivity;
 import com.example.vinifyveneto.entity.ResponseEntity;
@@ -88,6 +89,14 @@ public class UserFragment extends Fragment {
             }
         });
 
+        view.findViewById(R.id.privacyButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(requireContext().getApplicationContext(), PdfActivity.class));
+
+            }
+        });
+
         // Inflate the layout for this fragment
         return view;
     }
@@ -95,6 +104,26 @@ public class UserFragment extends Fragment {
     private void handleSignup(RetrofitInterface retrofitInterface) {
         View view = getLayoutInflater().inflate(R.layout.signup_dialog, null);
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        View popUp=view;
+
+
+        view.findViewById(R.id.userImageView).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isHidden){
+                    ((ImageView)popUp.findViewById(R.id.userImageView)).setImageResource(R.drawable.baseline_visibility_24);
+                    ((EditText)popUp.findViewById(R.id.signupPasswordEdit)).setTransformationMethod(null);
+                    ((EditText)popUp.findViewById(R.id.signupPasswordEdit)).setSelection(((EditText)popUp.findViewById(R.id.signupPasswordEdit)).getText().toString().length());
+                    isHidden=!isHidden;
+                }
+                else{
+                    ((ImageView)popUp.findViewById(R.id.userImageView)).setImageResource(R.drawable.baseline_visibility_off_24);
+                    ((EditText)popUp.findViewById(R.id.signupPasswordEdit)).setTransformationMethod(new PasswordTransformationMethod());
+                    ((EditText)popUp.findViewById(R.id.signupPasswordEdit)).setSelection(((EditText)popUp.findViewById(R.id.signupPasswordEdit)).getText().toString().length());
+                    isHidden=!isHidden;
+                }
+            }
+        });
 
         /*GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setShape(GradientDrawable.RECTANGLE);

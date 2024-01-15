@@ -46,7 +46,7 @@ public class SellerHome extends AppCompatActivity {
 
         //((TextView)findViewById(R.id.scritta)).setText(currentUser.get("id")+":");
 
-        ((TextView)findViewById(R.id.scritta)).setText(CurrentUser.getId()+":");
+        ((TextView)findViewById(R.id.scritta)).setText("Ciao, "+CurrentUser.getId()+":");
 
         findViewById(R.id.catalogo).setOnClickListener(new View.OnClickListener() {
             @Override

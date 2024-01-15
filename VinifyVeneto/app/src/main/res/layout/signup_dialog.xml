@@ -25,8 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                android:id="@+id/signupUserNameEdit"
-                android:drawableEnd="@drawable/done_icon"/>
+                android:id="@+id/signupUserNameEdit" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -34,12 +33,27 @@
                 android:text="  Password"
                 android:alpha="0.7"/>
 
-            <EditText
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:id="@+id/signupPasswordEdit"
-                android:drawableEnd="@drawable/baseline_remove_red_eye_24"/>
+                android:orientation="horizontal">
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="textPassword"
+                    android:id="@+id/signupPasswordEdit"
+                    />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baseline_visibility_off_24"
+                    android:id="@+id/userImageView"
+                    android:paddingTop="15dp"/>
+
+            </LinearLayout>
 
             <Button
                 android:layout_width="match_parent"

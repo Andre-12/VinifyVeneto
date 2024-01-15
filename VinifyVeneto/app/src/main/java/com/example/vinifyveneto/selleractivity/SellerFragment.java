@@ -17,11 +17,13 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.vinifyveneto.PdfActivity;
 import com.example.vinifyveneto.R;
 import com.example.vinifyveneto.entity.ResponseEntity;
 import com.example.vinifyveneto.entity.RetrofitEntity;
@@ -130,6 +132,13 @@ public class SellerFragment extends Fragment {
 
             }
         });
+
+        view.findViewById(R.id.Privacy).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(requireContext().getApplicationContext(), PdfActivity.class));
+            }
+        });
         // Inflate the layout for this fragment
         return view;
     }
@@ -137,6 +146,25 @@ public class SellerFragment extends Fragment {
     private void handleSignup(RetrofitInterface retrofitInterface){
         View view = getLayoutInflater().inflate(R.layout.seller_signup, null);
         View view1 = view;
+
+        view1.findViewById(R.id.sellerImageView).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isHidden) {
+                    isHidden=!isHidden;
+                    //Toast.makeText(getContext(), "Resa visibile", Toast.LENGTH_SHORT).show();
+                    ((ImageView) view1.findViewById(R.id.sellerImageView)).setImageResource(R.drawable.baseline_visibility_24);
+                    ((EditText)view1.findViewById(R.id.signupSellerPasswordEdit)).setTransformationMethod(null);
+                    ((EditText)view1.findViewById(R.id.signupSellerPasswordEdit)).setSelection(((EditText)view1.findViewById(R.id.signupSellerPasswordEdit)).getText().toString().length());
+                }
+                else{
+                    isHidden=!isHidden;
+                    ((ImageView)view1.findViewById(R.id.sellerImageView)).setImageResource(R.drawable.baseline_visibility_off_24);
+                    ((EditText)view1.findViewById(R.id.signupSellerPasswordEdit)).setTransformationMethod(new PasswordTransformationMethod());
+                    ((EditText)view1.findViewById(R.id.signupSellerPasswordEdit)).setSelection(((EditText)view1.findViewById(R.id.signupSellerPasswordEdit)).getText().toString().length());
+                }
+            }
+        });
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setView(view).show();
@@ -225,8 +253,10 @@ public class SellerFragment extends Fragment {
 
 
                 if(sellerId.getText().toString().isEmpty() || sellerName.getText().toString().isEmpty() || !telFormat(sellerTel.getText().toString()) ||
-                    sellerAddress.getText().toString().isEmpty() || sellerProvincia.getText().toString().isEmpty() || sellerPassword.getText().toString().isEmpty())
+                    sellerAddress.getText().toString().isEmpty() || sellerProvincia.getText().toString().isEmpty() || sellerPassword.getText().toString().isEmpty()) {
                     Toast.makeText(getActivity(), "Campi inseriti errati o mancanti", Toast.LENGTH_LONG).show();
+                    return;
+                }
 
 
                 HashMap<String, String> map = new HashMap<>();
@@ -277,6 +307,11 @@ public class SellerFragment extends Fragment {
 
 
     private void handleLogin(View view, RetrofitInterface retrofitInterface) {
+
+        if(!((CheckBox)view.findViewById(R.id.privacyButton)).isChecked()){
+            Toast.makeText(getContext(), "Accettare informativa privacy", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         Log.d("mytag", "pippo");
         HashMap<String, String> map = new HashMap<>();
